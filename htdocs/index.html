@@ -27,6 +27,7 @@
 	goog.require('jquery');
 	goog.require('nl.controls.layerswitcher');
 	goog.require('nl.controls.tooltip');
+	goog.require('nl.controls.popup');
 	goog.require('nl.model.Node');
 	</script>
 	<script>
@@ -61,6 +62,7 @@
 		controls: ol.control.defaults().extend([
 			new nl.controls.layerswitcher({layers: baselayers}),
 			new nl.controls.tooltip(),
+			new nl.controls.popup(),
 			new ol.control.ScaleLine(),
 			new ol.control.FullScreen(),
 			new ol.control.ZoomSlider()

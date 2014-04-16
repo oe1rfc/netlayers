@@ -13,8 +13,6 @@ nl.model.Node = function(opt_values) {
 	
 	goog.base(this, opt_values);
 	
-	// this.setValues(opt_values);
-//	this.setGeometry(new ol.geom.Point([this.get('lon'), this.get('lat')], this.get('opt_layout')) );
 	this.setGeometry(new ol.geom.Point(ol.proj.transform([this.get('lon'), this.get('lat')], 'EPSG:4326', 'EPSG:3857'), this.get('opt_layout')) );
 	this.setId(this.get('id'));
 };
