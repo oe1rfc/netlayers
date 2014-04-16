@@ -16,7 +16,7 @@ nl.controls.layerswitcher = function(opt_options) {
 	var e_list = document.createElement('ul');
 	
 	var element = document.createElement('div');
-	element.className = 'nl-menu nl-layerswitcher ol-unselectable';
+	element.className = 'nl-control nl-menu nl-layerswitcher ol-unselectable';
 	element.appendChild(e_head);
 	element.appendChild(e_list);
 	

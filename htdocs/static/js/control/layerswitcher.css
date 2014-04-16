@@ -1,5 +1,4 @@
 .nl-menu {
-	background-color: white; /* #101010; */
 	background-image: -moz-linear-gradient(center top , rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 50%, transparent 50%, rgba(0, 0, 0, 0.1) 100%);
 	box-shadow: 0 0.2em 0.4em rgba(0, 0, 0, 0.5);
 	font-size: 14px;

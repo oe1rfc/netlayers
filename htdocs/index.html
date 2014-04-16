@@ -23,7 +23,11 @@
 	<script type="text/javascript" src="static/js/base.js"></script>
 	
 	<script>
+	goog.require('ol3');
+	goog.require('jquery');
 	goog.require('nl.controls.layerswitcher');
+	goog.require('nl.controls.tooltip');
+	goog.require('nl.model.Node');
 	</script>
 	<script>
 	
@@ -34,11 +38,19 @@
 				source: new ol.source.OSM(),
 				name:'OSM'
 			}),
+			new ol.layer.Group({
+				layers: [
+					new ol.layer.Tile({ source: new ol.source.Stamen({layer: 'watercolor'}), }),
+					new ol.layer.Tile({ source: new ol.source.Stamen({layer: 'terrain-labels'}) })
+				],
+				visible: false,
+				name: 'Stamen tiles'
+			}),
 			new ol.layer.Tile({
 				source: new ol.source.MapQuest({layer: 'sat'}),
 				visible: false,
 				name:'MapQuest'
-			}),
+			})
 		],
 		name: 'BaseLayers',
 		id: 'baselayers'
@@ -48,7 +60,10 @@
 	var map = new ol.Map({
 		controls: ol.control.defaults().extend([
 			new nl.controls.layerswitcher({layers: baselayers}),
-			new ol.control.ScaleLine()
+			new nl.controls.tooltip(),
+			new ol.control.ScaleLine(),
+			new ol.control.FullScreen(),
+			new ol.control.ZoomSlider()
 		]),
 		layers: [
 			baselayers
@@ -60,6 +75,41 @@
 			zoom: 12
 		})
 	});
+	
+	
+	var iconStyle = new ol.style.Style({
+		image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
+			anchor: [0.5, 16],
+			anchorXUnits: 'fraction',
+			anchorYUnits: 'pixels',
+			opacity: 0.8,
+			src: 'static/img/icons/marker_red.png'
+		}))
+	});
+	
+	$.ajax({
+		dataType: "json",
+		url: "testdata/nodes.json",
+		success: function(data) {
+			var nodes = [];
+			for (key in data.nodes) {
+				var node = new nl.model.Node(data.nodes[key]);
+				node.setStyle(iconStyle);
+				nodes.push(node);
+			}
+			
+			
+			var vectorSource = new ol.source.Vector({
+				features: nodes
+			});
+
+			var vectorLayer = new ol.layer.Vector({
+				source: vectorSource
+			});
+			map.addLayer(vectorLayer);
+		}
+	});
+	
 	
 	</script>
 </body>
