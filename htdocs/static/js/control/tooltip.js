@@ -18,7 +18,7 @@ nl.controls.tooltip = function(opt_options) {
 	
 	ol.control.Control.call(this, {
 		element: this.element,
-		target: 'map' // options.target
+		target: options.target
 	});
 
 };
