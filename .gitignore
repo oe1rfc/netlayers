@@ -1,7 +1,7 @@
 *~
 *.swp
 tools/*
-#htdocs/static/lib/
 htdocs/static/build/*
 htdocs/static/js/deps.js
+htdocs/testdata/
 
