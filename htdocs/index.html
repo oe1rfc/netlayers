@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>FunkFeuer</title>
+    
+	<style type="text/css">
+		html, body, .map {
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			height: 100%;
+			background-color: #dfdafa;
+		}
+    </style>
+    <link rel="stylesheet" href="static/lib/ol3/build/ol.css" type="text/css">
+    <link rel="stylesheet" href="static/build/netlayers.css" type="text/css">
+</head>
+<body>
+	<div id="login" class="login"></div>
+	<div id="map" class="map"></div>
+	
+	<script type="text/javascript" src="static/js/base.js"></script>
+	
+	<script>
+	goog.require('nl.controls.layerswitcher');
+	</script>
+	<script>
+	
+	
+	var baselayers = new ol.layer.Group({
+		layers: [
+			new ol.layer.Tile({
+				source: new ol.source.OSM(),
+				name:'OSM'
+			}),
+			new ol.layer.Tile({
+				source: new ol.source.MapQuest({layer: 'sat'}),
+				visible: false,
+				name:'MapQuest'
+			}),
+		],
+		name: 'BaseLayers',
+		id: 'baselayers'
+	});
+	
+	
+	var map = new ol.Map({
+		controls: ol.control.defaults().extend([
+			new nl.controls.layerswitcher({layers: baselayers}),
+			new ol.control.ScaleLine()
+		]),
+		layers: [
+			baselayers
+		],
+		//	renderer: ol.RendererHints.createFromQueryData(),
+		target: 'map',
+		view: new ol.View2D({
+			center: ol.proj.transform([16.36482238, 48.19682895], 'EPSG:4326', 'EPSG:3857'),
+			zoom: 12
+		})
+	});
+	
+	</script>
+</body>
+</html>

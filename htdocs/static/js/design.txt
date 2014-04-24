@@ -1,0 +1,10 @@
+
+Network: a topology of interlinked devices, which belong to nodes with geo coordinates
+net.*
+	topology-related functions
+
+Map: ol3 Map class
+map.*
+	map-related stuff
+	 layers, map controls, markers etc.
+	

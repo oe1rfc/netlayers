@@ -1,0 +1,42 @@
+.nl-menu {
+	background-color: white; /* #101010; */
+	background-image: -moz-linear-gradient(center top , rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 50%, transparent 50%, rgba(0, 0, 0, 0.1) 100%);
+	box-shadow: 0 0.2em 0.4em rgba(0, 0, 0, 0.5);
+	font-size: 14px;
+	list-style: none outside none;
+	position: fixed;
+	top: 0;
+	z-index: 3;
+	padding: 5px;
+	border: 0 none;
+	display: inline-block;
+	outline: 0 none;
+}
+
+.nl-menu:hover {
+	/*background-color: #282828;
+	background-image: -moz-linear-gradient(center top , rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 50%, transparent 50%, rgba(0, 0, 0, 0.1) 100%);
+	
+	background-image: -moz-linear-gradient(center top , rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0.3) 50%, rgba(127, 127, 127, 0.2));
+	*/
+}
+
+.nl-menu .active {
+	background-color: #A0FFA0;
+	font-weight: bold;
+}
+
+.nl-layerswitcher {
+	left: 5em
+}
+
+.nl-layerswitcher ul {
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+	margin-top: 5px;
+	display: none;
+}
+.nl-layerswitcher:hover ul {
+	display: block;
+}

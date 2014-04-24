@@ -1,0 +1,9 @@
+[submodule "closure-library"]
+	path = htdocs/static/lib/closure-library
+	url = https://code.google.com/p/closure-library/
+[submodule "ol3"]
+	path = htdocs/static/lib/ol3
+	url = https://github.com/openlayers/ol3.git
+[submodule "i18n-js"]
+	path = htdocs/static/lib/i18n-js
+	url = https://github.com/fnando/i18n-js.git
