@@ -2,7 +2,8 @@
 *~
 *.swp
 tools/*
-htdocs/static/build/*
+htdocs/static/build/
+htdocs/static/build/netlayers.css
 htdocs/static/js/deps.js
 htdocs/testdata/
 

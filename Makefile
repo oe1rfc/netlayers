@@ -3,11 +3,19 @@ deps:
 	python htdocs/static/lib/closure-library/closure/bin/calcdeps.py -i htdocs/static/js/app.js -p htdocs/static/js/ -o deps >> htdocs/static/js/deps.js
 
 tools-init:
+	mkdir -p htdocs/static/build/
+	test -s tools/closure-stylesheets.jar || \
 	wget https://closure-stylesheets.googlecode.com/files/closure-stylesheets-20111230.jar -O tools/closure-stylesheets.jar
 
 submodule-init:
 	git submodule init
 	git submodule update
+
+build-submodules:
+	cd htdocs/static/lib/ol3 && python build.py build
+
+repo-init:	tools-init submodule-init build-submodules deps build-css
+
 
 build-css:
 	# compiling css
