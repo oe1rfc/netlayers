@@ -1,6 +1,6 @@
 deps: 
 	cat htdocs/static/js/lib_deps.js > htdocs/static/js/deps.js
-	python htdocs/static/lib/closure-library/closure/bin/calcdeps.py -i htdocs/static/js/app.js -p htdocs/static/js/ -o deps >> htdocs/static/js/deps.js
+	python htdocs/static/lib/closure-library/closure/bin/build/depswriter.py --root_with_prefix="htdocs/static/js ../../../../js" >> htdocs/static/js/deps.js
 
 tools-init:
 	mkdir -p htdocs/static/build/
